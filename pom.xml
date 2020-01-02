@@ -25,7 +25,7 @@
 
     <modules>
         <module>jwkms</module>
-        <module>gateway</module>
+        <module>scgw</module>
         <module>directory</module>
         <module>as-api</module>
         <module>rs-api</module>

@@ -12,13 +12,13 @@ import brave.handler.MutableSpan;
 import brave.propagation.TraceContext;
 import com.forgerock.cdr.gateway.config.SslConfiguration;
 import com.forgerock.cdr.gateway.config.SslConfigurationFailure;
-import com.forgerock.cdr.gateway.filters.AccessTokenGatewayFilter;
 import com.forgerock.cdr.gateway.filters.AddCertificateHeaderGatewayFilter;
 import com.forgerock.cdr.gateway.filters.AddInteractionIdHeaderGatewayFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.gateway.route.Route;
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -37,19 +37,14 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.function.Function;
 
+@EnableDiscoveryClient
 @SpringBootApplication
 public class CdrGatewayApplication {
     public static final String X_FORWARDED_HOST = "X-Forwarded-Host";
     public static final String X_FORWARDED_PROTO = "X-Forwarded-Proto";
 
-    @Value("${test.uri:http://httpbin.org:80}")
-    String uri;
-
     @Autowired
     public OBMatlsFilteringFactory obMatlsFilteringFactory;
-
-    @Autowired
-    private AccessTokenGatewayFilter accessTokenGatewayFilter;
     @Autowired
     private AddCertificateHeaderGatewayFilter addCertificateHeaderGatewayFilter;
     @Autowired
