@@ -19,6 +19,8 @@
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <nimbus-jose-jwt.version>7.9</nimbus-jose-jwt.version>
         <unirest-java.version>2.3.06</unirest-java.version>
+        <logstash.version>4.11</logstash.version>
+        <spring-boot-admin.version>2.1.4</spring-boot-admin.version>
     </properties>
 
     <modules>
@@ -57,6 +59,16 @@
                 <groupId>com.konghq</groupId>
                 <artifactId>unirest-objectmapper-jackson</artifactId>
                 <version>${unirest-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring-boot-admin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

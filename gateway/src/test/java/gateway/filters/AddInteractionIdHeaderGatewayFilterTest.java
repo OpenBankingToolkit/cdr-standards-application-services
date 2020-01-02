@@ -10,7 +10,7 @@ package gateway.filters;
 import brave.Span;
 import brave.Tracer;
 import brave.propagation.TraceContext;
-import com.forgerock.openbanking.gateway.filters.AddInteractionIdHeaderGatewayFilter;
+import com.forgerock.cdr.gateway.filters.AddInteractionIdHeaderGatewayFilter;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -7,7 +7,7 @@
  */
 package gateway.filters;
 
-import com.forgerock.openbanking.gateway.filters.AbortWithStatusGatewayFilterFactory;
+import com.forgerock.cdr.gateway.filters.AbortWithStatusGatewayFilterFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
