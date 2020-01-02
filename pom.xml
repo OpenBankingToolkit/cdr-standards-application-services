@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.forgerock.cdr</groupId>
+    <artifactId>consumer-data-right-reference-implementation</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+    </parent>
+
+    <properties>
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <nimbus-jose-jwt.version>7.9</nimbus-jose-jwt.version>
+        <unirest-java.version>2.3.06</unirest-java.version>
+    </properties>
+
+    <modules>
+        <module>jwkms</module>
+        <module>gateway</module>
+        <module>directory</module>
+        <module>as-api</module>
+        <module>rs-api</module>
+        <module>rs-store</module>
+        <module>rs-rcs</module>
+        <module>rs-portal</module>
+        <module>rs-simulator</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.konghq</groupId>
+                <artifactId>unirest-java</artifactId>
+                <version>${unirest-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.konghq</groupId>
+                <artifactId>unirest-objectmapper-jackson</artifactId>
+                <version>${unirest-java.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
