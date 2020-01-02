@@ -31,6 +31,7 @@
         <module>rs-rcs</module>
         <module>rs-portal</module>
         <module>rs-simulator</module>
+        <module>config</module>
     </modules>
 
     <dependencyManagement>
