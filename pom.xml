@@ -132,6 +132,16 @@
                 <artifactId>forgerock-openbanking-uk-aspsp-rs-rcs-server</artifactId>
                 <version>${ob-aspsp.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.forgerock.openbanking.aspsp</groupId>
+                <artifactId>forgerock-openbanking-uk-aspsp-rs-mock-payment-simulator-server</artifactId>
+                <version>${ob-aspsp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.forgerock.openbanking.aspsp</groupId>
+                <artifactId>forgerock-openbanking-cdr-aspsp-rs-mock-store-server</artifactId>
+                <version>${ob-aspsp.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
