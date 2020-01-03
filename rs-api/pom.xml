@@ -11,5 +11,32 @@
 
     <artifactId>rs-api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.forgerock.openbanking.aspsp</groupId>
+            <artifactId>forgerock-openbanking-cdr-aspsp-rs-gateway-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>dev.openbanking4.spring.security</groupId>
+            <artifactId>spring-security-multi-auth-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.forgerock.openbanking.clients</groupId>
+            <artifactId>forgerock-openbanking-analytics-webclient</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources/unfiltered</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/filtered</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
 </project>

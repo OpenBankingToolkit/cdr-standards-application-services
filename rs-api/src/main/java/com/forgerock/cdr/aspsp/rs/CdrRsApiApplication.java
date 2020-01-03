@@ -5,7 +5,7 @@
  * or with one of its affiliates. All use shall be exclusively subject
  * to such license between the licensee and ForgeRock AS.
  */
-package com.forgerock.openbanking.aspsp.as;
+package com.forgerock.cdr.aspsp.rs;
 
 import com.forgerock.cert.Psd2CertInfo;
 import com.forgerock.cert.psd2.RolesOfPsp;
@@ -75,12 +75,13 @@ import java.util.stream.Collectors;
 @EnableDiscoveryClient
 @EnableScheduling
 @EnableWebSecurity
+
 @ComponentScan(basePackages = {"com.forgerock"})
 @EnableMongoRepositories(basePackages = "com.forgerock")
-public class CdrAsApiApplication {
+public class CdrRsApiApplication {
 
     public static void main(String[] args) {
-        new SpringApplication(CdrAsApiApplication.class).run(args);
+        new SpringApplication(CdrRsApiApplication.class).run(args);
     }
 
     @Value("${matls.forgerock-internal-ca-alias}")
