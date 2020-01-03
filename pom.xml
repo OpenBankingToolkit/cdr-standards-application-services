@@ -103,6 +103,11 @@
                 <version>${spring-security-multi-auth-starter.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.forgerock.openbanking.clients</groupId>
+                <artifactId>forgerock-openbanking-analytics-webclient</artifactId>
+                <version>${ob-clients.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.forgerock.openbanking.jwkms</groupId>
                 <artifactId>forgerock-openbanking-jwkms-server</artifactId>
                 <version>${ob-jwkms.version}</version>
@@ -111,6 +116,11 @@
                 <groupId>com.forgerock.openbanking.directory</groupId>
                 <artifactId>forgerock-openbanking-directory-server</artifactId>
                 <version>${ob-directory.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.forgerock.openbanking.aspsp</groupId>
+                <artifactId>forgerock-openbanking-cdr-aspsp-as-gateway-server</artifactId>
+                <version>${ob-aspsp.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
