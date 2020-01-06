@@ -39,8 +39,8 @@
         <module>rs-api</module>
         <module>rs-store</module>
         <module>rs-rcs</module>
-        <module>rs-portal</module>
         <module>rs-simulator</module>
+        <module>rs-ui</module>
         <module>config</module>
     </modules>
 
@@ -140,6 +140,11 @@
             <dependency>
                 <groupId>com.forgerock.openbanking.aspsp</groupId>
                 <artifactId>forgerock-openbanking-cdr-aspsp-rs-mock-store-server</artifactId>
+                <version>${ob-aspsp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.forgerock.openbanking.aspsp</groupId>
+                <artifactId>forgerock-openbanking-uk-aspsp-rs-mock-portal-server</artifactId>
                 <version>${ob-aspsp.version}</version>
             </dependency>
         </dependencies>
