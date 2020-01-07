@@ -11,17 +11,17 @@ server:
 
 
 as:
+  gateway:
+    jwk_uri: https://test
   headless:
     header-enable: true
     always-enable: false
-  gateway:
-    jwk_uri: https://rcs.aspsp.${dns.hosts.root}:${scgw.port}/api/jwk/jwk_uri
 
 am:
   internal-port: 30443
   internal:
     root: https://openam:${am.internal-port}
-  port: 8074
+  port: 443
   hostname: as.aspsp.${dns.hosts.root}:${am.port}
   matls-hostname: matls.as.aspsp.${dns.hosts.root}:${am.port}
   realm:
@@ -36,7 +36,6 @@ am:
       userinfo: ${am.internal.root}/oauth2/realms/root/realms/openbanking/userinfo
       registration: ${am.internal.root}/oauth2/realms/root/realms/openbanking/register
     jwksuri: ${am.internal.root}/oauth2/realms/root/realms/openbanking/connect/jwk_uri
-
 rs:
   detached-signature:
     enable: false
@@ -158,3 +157,8 @@ directory-data:
       rsDiscoveryEndpoint: https://rs.aspsp.${dns.hosts.root}:${am.port}/open-banking/discovery
       testMtlsEndpoint: https://rs.aspsp.${dns.hosts.root}:${am.port}/open-banking/mtlsTest
       transportKeys: https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox
+
+graceful:
+  shutdown:
+    wait: 0
+    timeout: 0

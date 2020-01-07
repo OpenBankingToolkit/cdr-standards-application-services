@@ -554,7 +554,7 @@ rs-store:
 
 as:
   gateway:
-    jwk_uri: https://rcs.aspsp.${dns.hosts.root}/api/jwk/jwk_uri
+    jwk_uri: https://test
   headless:
     always-enable: false
     header-enable: false
