@@ -1,0 +1,27 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="config" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="config" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.forgerock.cdr.config.CdrConfigApplication" />
+    <option name="ACTIVE_PROFILES" value="native,console-logging" />
+    <option name="VM_PARAMETERS" value=" -Xms128m -Xmx256m -Djavax.net.ssl.trustStore=keystore/truststore.jks" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <additionalParameters>
+      <param>
+        <option name="enabled" value="true" />
+        <option name="name" value="spring.boot.admin.client.url" />
+        <option name="value" value="https://admin.dev-ob.forgerock.financial:8082" />
+      </param>
+      <param>
+        <option name="enabled" value="true" />
+        <option name="name" value="git.uri.branded" />
+        <option name="value" value="git@github.com:$USER/ob-reference-implementation.git" />
+      </param>
+    </additionalParameters>
+    <envs>
+      <env name="CONFIG_GIT_IGNORE_LOCAL_SSH" value="false" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
