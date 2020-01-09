@@ -7,4 +7,4 @@ services:
     - "27017:27017"
     volumes:
     - ./mongo/:/docker-entrypoint-initdb.d/:ro
-    - ~/mongo:/data/db  # Persist mongo datfiltereda to $HOME/mongo
+    - ${PWD}/mongodata:/data/db  # Persist mongo data to ${PWD}/mongodata

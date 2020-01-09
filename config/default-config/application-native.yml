@@ -11,8 +11,6 @@ server:
 
 
 as:
-  gateway:
-    jwk_uri: https://test
   headless:
     header-enable: true
     always-enable: false

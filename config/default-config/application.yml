@@ -554,7 +554,7 @@ rs-store:
 
 as:
   gateway:
-    jwk_uri: https://test
+    jwk_uri: ${rcs.jwks_uri}
   headless:
     always-enable: false
     header-enable: false
