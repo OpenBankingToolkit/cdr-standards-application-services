@@ -29,6 +29,7 @@
         <ob-directory.version>1.4.37</ob-directory.version>
         <ob-aspsp.version>1.0.34</ob-aspsp.version>
         <ob-clients.version>1.0.16</ob-clients.version>
+        <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
     </properties>
 
     <modules>
@@ -153,7 +154,6 @@
     <build>
         <pluginManagement>
             <plugins>
-
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
@@ -164,6 +164,25 @@
                         <execution>
                             <goals>
                                 <goal>build-info</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <version>${dockerfile-maven-plugin.version}</version>
+                    <configuration>
+                        <skipPush>false</skipPush>
+                        <repository>fropenbanking/cdr-${project.artifactId}</repository>
+                        <buildArgs>
+                            <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                        </buildArgs>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>build</goal>
                             </goals>
                         </execution>
                     </executions>
