@@ -7,9 +7,8 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    name: Build, push and tag Docker images
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 1.11

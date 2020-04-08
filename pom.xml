@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2020 ForgeRock AS.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.forgerock.cdr</groupId>
-    <artifactId>consumer-data-right-reference-implementation</artifactId>
+    <groupId>com.forgerock.cdr.standards</groupId>
+    <artifactId>cdr-standards-application-services</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
+        <groupId>com.forgerock.cdr.standards</groupId>
+        <artifactId>cdr-standards-starter-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
-        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
-        <nimbus-jose-jwt.version>8.4</nimbus-jose-jwt.version>
-        <unirest-java.version>2.3.06</unirest-java.version>
-        <logstash.version>6.3</logstash.version>
-        <spring-boot-admin.version>2.1.4</spring-boot-admin.version>
-        <spring-security-multi-auth-starter.version>2.2.1.0.0.54</spring-security-multi-auth-starter.version>
-        <ob-common.version>1.0.56</ob-common.version>
-        <ob-analytics.version>1.1.29</ob-analytics.version>
-        <ob-jwkms.version>1.1.65</ob-jwkms.version>
-
-        <ob-directory.version>1.4.64</ob-directory.version>
-        <ob-aspsp.version>1.0.74</ob-aspsp.version>
-        <ob-clients.version>1.0.31</ob-clients.version>
-        <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
-        <write-text-files-maven-plugin.version>1.1</write-text-files-maven-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <cdr-standards-boom.version>1.0.0</cdr-standards-boom.version>
     </properties>
 
     <modules>
@@ -48,106 +60,26 @@
 
     <repositories>
         <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>central</id>
-            <name>bintray</name>
-            <url>https://jcenter.bintray.com</url>
+            <id>maven.forgerock.org-community</id>
+            <name>maven.forgerock.org-releases</name>
+            <url>https://maven.forgerock.org:443/repo/community</url>
         </repository>
         <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-openbanking-toolkit-OpenBankingToolKit</id>
-            <name>bintray</name>
-            <url>https://dl.bintray.com/openbanking-toolkit/OpenBankingToolKit</url>
+            <id>maven.forgerock.org-community-snapshots</id>
+            <name>maven.forgerock.org-snapshots</name>
+            <url>https://maven.forgerock.org:443/repo/community</url>
         </repository>
     </repositories>
 
     <dependencyManagement>
         <dependencies>
+            <!-- cdr boom -->
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
+                <groupId>com.forgerock.cdr.standards</groupId>
+                <artifactId>cdr-standards-bom</artifactId>
+                <version>${cdr-standards-boom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.nimbusds</groupId>
-                <artifactId>nimbus-jose-jwt</artifactId>
-                <version>${nimbus-jose-jwt.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.konghq</groupId>
-                <artifactId>unirest-java</artifactId>
-                <version>${unirest-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.konghq</groupId>
-                <artifactId>unirest-objectmapper-jackson</artifactId>
-                <version>${unirest-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.logstash.logback</groupId>
-                <artifactId>logstash-logback-encoder</artifactId>
-                <version>${logstash.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId>
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>dev.openbanking4.spring.security</groupId>
-                <artifactId>spring-security-multi-auth-starter</artifactId>
-                <version>${spring-security-multi-auth-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.clients</groupId>
-                <artifactId>forgerock-openbanking-analytics-webclient</artifactId>
-                <version>${ob-clients.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.jwkms</groupId>
-                <artifactId>forgerock-openbanking-jwkms-server</artifactId>
-                <version>${ob-jwkms.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.directory</groupId>
-                <artifactId>forgerock-openbanking-directory-server</artifactId>
-                <version>${ob-directory.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.aspsp</groupId>
-                <artifactId>forgerock-openbanking-cdr-aspsp-as-gateway-server</artifactId>
-                <version>${ob-aspsp.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.aspsp</groupId>
-                <artifactId>forgerock-openbanking-cdr-aspsp-rs-gateway-server</artifactId>
-                <version>${ob-aspsp.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.aspsp</groupId>
-                <artifactId>forgerock-openbanking-uk-aspsp-rs-rcs-server</artifactId>
-                <version>${ob-aspsp.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.aspsp</groupId>
-                <artifactId>forgerock-openbanking-uk-aspsp-rs-mock-payment-simulator-server</artifactId>
-                <version>${ob-aspsp.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.aspsp</groupId>
-                <artifactId>forgerock-openbanking-cdr-aspsp-rs-mock-store-server</artifactId>
-                <version>${ob-aspsp.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.aspsp</groupId>
-                <artifactId>forgerock-openbanking-uk-aspsp-rs-mock-portal-server</artifactId>
-                <version>${ob-aspsp.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -155,20 +87,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <configuration>
-                        <executable>true</executable>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>build-info</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
                 <plugin>
                     <groupId>com.spotify</groupId>
                     <artifactId>dockerfile-maven-plugin</artifactId>
@@ -205,37 +123,6 @@
                                 <goal>push</goal>
                             </goals>
                             <phase>none</phase>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>ru.yaal.maven</groupId>
-                    <artifactId>write-text-files-maven-plugin</artifactId>
-                    <version>${write-text-files-maven-plugin.version}</version>
-                    <configuration>
-                        <charset>UTF-8</charset>
-                        <files>
-                            <file>
-                                <path>${project.build.directory}/SERVICE</path>
-                                <lines>
-                                    <line>${project.name}</line>
-                                </lines>
-                            </file>
-                            <file>
-                                <path>${project.build.directory}/VERSION</path>
-                                <lines>
-                                    <line>${project.version}</line>
-                                </lines>
-                            </file>
-                        </files>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>write-text-files</id>
-                            <phase>prepare-package</phase>
-                            <goals>
-                                <goal>write-text-files</goal>
-                            </goals>
                         </execution>
                     </executions>
                 </plugin>
